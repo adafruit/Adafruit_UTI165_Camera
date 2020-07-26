@@ -42,14 +42,14 @@ while(True):
     colorframe = cv2.cvtColor(frame, cv2.COLOR_BGR2BGRA)
     # Display the resulting frame
     cv2.imshow('Thermal Camera - Press Q to quit', colorframe)
-    
+
     cam.set(cv2.CAP_PROP_CONVERT_RGB, 0)
     ret, frame = cam.read()
     if not ret:
         print("Failed to fetch frame")
         time.sleep(0.1)
         continue
-    print("Frame OK! for temp calculation")
+    print("Temp calculation (experimental): ", end="" )
     print(struct.unpack("h", frame[320][0][0:2])[0]/10)
     cam.set(cv2.CAP_PROP_CONVERT_RGB, 1)
 
