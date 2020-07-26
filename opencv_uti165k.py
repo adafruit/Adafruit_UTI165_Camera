@@ -50,7 +50,7 @@ while(True):
         time.sleep(0.1)
         continue
     print("Frame OK! for temp calculation")
-    print(struct.unpack("h", frame[320][0])[0]/10)
+    print(struct.unpack("h", frame[320][0][0:2])[0]/10)
     cam.set(cv2.CAP_PROP_CONVERT_RGB, 1)
 
     
